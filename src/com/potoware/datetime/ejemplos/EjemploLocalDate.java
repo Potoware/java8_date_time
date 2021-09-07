@@ -1,8 +1,9 @@
 package com.potoware.datetime.ejemplos;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 public class EjemploLocalDate {
 
@@ -14,6 +15,8 @@ public class EjemploLocalDate {
         System.out.println("Dia de la semana = " + fechaActual.getDayOfWeek());
         System.out.println("Dia del mes = " + fechaActual.getDayOfMonth());
         System.out.println("Era = " + fechaActual.getEra());
+        Month mes = fechaActual.getMonth();
+        System.out.println("Numero mes = " + mes.getDisplayName(TextStyle.FULL,new Locale("es", "CO")));
 
         fechaActual = LocalDate.of(1998,05,02);
         System.out.println(fechaActual);
@@ -30,7 +33,7 @@ public class EjemploLocalDate {
         LocalDate mesAnteriorMismoDia = LocalDate.now().minusMonths(1);
         System.out.println("mesAnteriorMismoDia = " + mesAnteriorMismoDia);
 
-        DayOfWeek dia = LocalDate.parse("2020-11-10").getDayOfWeek();
+        String dia = LocalDate.parse("2020-11-10").getDayOfWeek().getDisplayName(TextStyle.FULL,new Locale("es","CO"));
         System.out.println("dia = " + dia);
         
         int once = LocalDate.of(2020,10,30).getDayOfMonth();
